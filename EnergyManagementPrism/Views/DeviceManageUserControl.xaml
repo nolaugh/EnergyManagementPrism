@@ -1,0 +1,233 @@
+﻿<UserControl
+    x:Class="EnergyManagementPrism.Views.DeviceManageUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:EnergyManagementPrism.ViewModels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <b:Interaction.Triggers>
+        <b:EventTrigger EventName="Loaded">
+            <b:InvokeCommandAction Command="{Binding LoadedCmd}" />
+        </b:EventTrigger>
+    </b:Interaction.Triggers>
+
+    <Grid>
+        <Image
+            Opacity="0"
+            Source="/Pic/background.png"
+            Stretch="UniformToFill" />
+        <Label
+            Height="1070"
+            Margin="1,1,1,1"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            Background="blue"
+            Opacity="0.2" />
+        <DataGrid
+            x:Name="dgv_Device"
+            Margin="1,1,1,500"
+            AutoGenerateColumns="False"
+            Background="AliceBlue"
+            FontSize="24"
+            FontWeight="Bold"
+            ItemsSource="{Binding DeviceItems}"
+            Opacity="0.7"
+            SelectedItem="{Binding DeviceSelectItem}"
+            SelectionChanged="dgv_Device_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Width="240"
+                    Binding="{Binding ID}"
+                    Header="ID"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="350"
+                    Binding="{Binding Name}"
+                    Header="Name"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="350"
+                    Binding="{Binding Volotage}"
+                    Header="Volotage"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="350"
+                    Binding="{Binding Electricit}"
+                    Header="Electricit"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="350"
+                    Binding="{Binding Power}"
+                    Header="Power"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="200"
+                    Binding="{Binding Address}"
+                    Header="Address"
+                    IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock
+            Margin="121,650,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="35"
+            FontWeight="Bold"
+            Foreground="White"
+            Text="ID："
+            TextWrapping="NoWrap" />
+        <hc:TextBox
+            Width="350"
+            Height="44"
+            Margin="240,650,1480,0"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            IsReadOnly="True"
+            Opacity="0.8"
+            Text="{Binding TID}"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="791,650,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="35"
+            FontWeight="Bold"
+            Foreground="White"
+            Text="设备名："
+            TextWrapping="NoWrap" />
+        <hc:TextBox
+            Width="350"
+            Height="44"
+            Margin="931,650,789,0"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Opacity="0.8"
+            Text="{Binding TName}"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="1508,650,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="35"
+            FontWeight="Bold"
+            Foreground="White"
+            Text="电压："
+            TextWrapping="NoWrap" />
+        <hc:TextBox
+            Width="350"
+            Height="44"
+            Margin="1620,650,100,0"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Opacity="0.8"
+            Text="{Binding TVolotage}"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="121,770,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="35"
+            FontWeight="Bold"
+            Foreground="White"
+            Text="电流："
+            TextWrapping="NoWrap" />
+        <hc:TextBox
+            Width="350"
+            Height="44"
+            Margin="240,770,1480,0"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Opacity="0.8"
+            Text="{Binding TElectricit}"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="791,770,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="35"
+            FontWeight="Bold"
+            Foreground="White"
+            Text="功率："
+            TextWrapping="NoWrap" />
+        <hc:TextBox
+            Width="350"
+            Height="44"
+            Margin="931,770,789,0"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Opacity="0.8"
+            Text="{Binding TPower}"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="1508,770,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="35"
+            FontWeight="Bold"
+            Foreground="White"
+            Text="地址："
+            TextWrapping="NoWrap" />
+        <hc:TextBox
+            Width="350"
+            Height="44"
+            Margin="1620,770,100,0"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Opacity="0.8"
+            Text="{Binding TAddress}"
+            TextWrapping="NoWrap" />
+        <Button
+            Width="300"
+            Height="70"
+            Margin="121,910,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding NewDeviceCmd}"
+            Content="新增设备"
+            FontSize="30"
+            FontWeight="Bold"
+            Style="{StaticResource ButtonPrimary}" />
+        <Button
+            Width="300"
+            Height="70"
+            Margin="620,910,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding UpdateDeviceCmd}"
+            Content="修改设备"
+            FontSize="30"
+            FontWeight="Bold"
+            Style="{StaticResource ButtonWarning}" />
+        <Button
+            Width="300"
+            Height="70"
+            Margin="1120,910,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding DeleteDeviceCmd}"
+            Content="删除设备"
+            FontSize="30"
+            FontWeight="Bold"
+            Style="{StaticResource ButtonDanger}" />
+        <Button
+            Width="300"
+            Height="70"
+            Margin="1620,910,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding ManageDeviceCmd}"
+            Content="配置绑定"
+            FontSize="30"
+            FontWeight="Bold"
+            Style="{StaticResource ButtonInfo}" />
+    </Grid>
+</UserControl>

@@ -1,0 +1,269 @@
+﻿<UserControl
+    x:Class="EnergyManagementPrism.Views.ControlPolicyUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:EnergyManagementPrism.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <b:Interaction.Triggers>
+        <b:EventTrigger EventName="Loaded">
+            <b:InvokeCommandAction Command="{Binding LoadedCmd}" />
+        </b:EventTrigger>
+    </b:Interaction.Triggers>
+
+    <Grid>
+        <Label
+            Height="1070"
+            Margin="1,1,1,1"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            Background="blue"
+            Opacity="0.2" />
+        <Image
+            Opacity="0"
+            Source="/Pic/background.png"
+            Stretch="UniformToFill" />
+        <DataGrid
+            Margin="0,0,0,540"
+            AutoGenerateColumns="False"
+            Background="AliceBlue"
+            FontSize="24"
+            FontWeight="Bold"
+            ItemsSource="{Binding ControlItems}"
+            Opacity="0.7"
+            SelectedItem="{Binding ControlSelectItem}"
+            SelectionChanged="DataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Width="240"
+                    Binding="{Binding ID}"
+                    Header="ID"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="260"
+                    Binding="{Binding Device}"
+                    Header="Device"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="260"
+                    Binding="{Binding Point}"
+                    Header="Point"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="260"
+                    Binding="{Binding Condition}"
+                    Header="Condition"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="260"
+                    Binding="{Binding Threshold}"
+                    Header="Threshold"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="260"
+                    Binding="{Binding Do}"
+                    Header="Do"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="260"
+                    Binding="{Binding OpenClose}"
+                    Header="OpenClose"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="260"
+                    Binding="{Binding Status}"
+                    Header="Status"
+                    IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock
+            Margin="40,656,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="35"
+            FontWeight="Bold"
+            Foreground="White"
+            Text="设备："
+            TextWrapping="NoWrap" />
+        <hc:ComboBox
+            x:Name="cmb_Sensor"
+            Width="400"
+            Height="44"
+            Margin="181,656,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            SelectionChanged="cmb_Sensor_SelectionChanged"
+            Text="{Binding TDevice}">
+            <ComboBoxItem Content="一号传感器" />
+            <ComboBoxItem Content="二号传感器" />
+            <ComboBoxItem Content="三号开关量" />
+            <ComboBoxItem Content="四号PLC设备" />
+        </hc:ComboBox>
+        <TextBlock
+            Margin="1483,656,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="35"
+            FontWeight="Bold"
+            Foreground="White"
+            Text="条件："
+            TextWrapping="NoWrap" />
+        <hc:ComboBox
+            Width="400"
+            Height="44"
+            Margin="1675,656,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Text="{Binding TCondition}">
+            <ComboBoxItem Content="&gt;" />
+            <ComboBoxItem Content="&gt;=" />
+            <ComboBoxItem Content="==" />
+            <ComboBoxItem Content="&lt;" />
+            <ComboBoxItem Content="&lt;=" />
+        </hc:ComboBox>
+        <TextBlock
+            Margin="40,788,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="35"
+            FontWeight="Bold"
+            Foreground="White"
+            Text="阈值："
+            TextWrapping="NoWrap" />
+        <hc:TextBox
+            Width="400"
+            Height="44"
+            Margin="181,788,1539,0"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Text="{Binding TThreshold}"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="774,766,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="35"
+            FontWeight="Bold"
+            Foreground="White"
+            Text="DO："
+            TextWrapping="NoWrap" />
+        <hc:ComboBox
+            Width="400"
+            Height="44"
+            Margin="915,766,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Text="{Binding TDo}">
+            <ComboBoxItem Content="DO1" />
+            <ComboBoxItem Content="DO2" />
+        </hc:ComboBox>
+        <TextBlock
+            Margin="1483,766,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="35"
+            FontWeight="Bold"
+            Foreground="White"
+            Text="开关："
+            TextWrapping="NoWrap" />
+        <hc:ComboBox
+            Width="400"
+            Height="44"
+            Margin="1675,766,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Text="{Binding TOpenClose}">
+            <ComboBoxItem Content="开" />
+            <ComboBoxItem Content="关" />
+        </hc:ComboBox>
+        <TextBlock
+            Margin="774,656,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="35"
+            FontWeight="Bold"
+            Foreground="White"
+            Text="点位："
+            TextWrapping="NoWrap" />
+        <hc:ComboBox
+            x:Name="cmb_Point"
+            Width="400"
+            Height="44"
+            Margin="915,656,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Text="{Binding TPoint}">
+            <ComboBoxItem Content="点位1" />
+            <ComboBoxItem Content="点位2" />
+        </hc:ComboBox>
+        <Button
+            Width="240"
+            Height="69"
+            Margin="1483,925,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding StartContorlCmd}"
+            Content="启动"
+            FontSize="30"
+            FontWeight="Bold"
+            Style="{StaticResource ButtonPrimary}" />
+        <Button
+            Width="240"
+            Height="69"
+            Margin="1835,925,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding StopContorlCmd}"
+            Content="停止"
+            FontSize="30"
+            FontWeight="Bold"
+            Style="{StaticResource ButtonDanger}" />
+        <Button
+            Width="300"
+            Height="70"
+            Margin="40,924,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding NewControlCmd}"
+            Content="新增策略"
+            FontSize="30"
+            FontWeight="Bold"
+            Style="{StaticResource ButtonPrimary}" />
+        <Button
+            Width="300"
+            Height="70"
+            Margin="526,924,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding UpdateControlCmd}"
+            Content="修改策略"
+            FontSize="30"
+            FontWeight="Bold"
+            Style="{StaticResource ButtonWarning}" />
+        <Button
+            Width="300"
+            Height="70"
+            Margin="1015,924,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding DeleteControlCmd}"
+            Content="删除策略"
+            FontSize="30"
+            FontWeight="Bold"
+            Style="{StaticResource ButtonDanger}" />
+    </Grid>
+</UserControl>

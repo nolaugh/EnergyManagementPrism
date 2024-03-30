@@ -1,0 +1,1192 @@
+﻿<UserControl
+    x:Class="EnergyManagementPrism.Views.MonitorUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:EnergyManagementPrism.Views"
+    xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Loaded="UserControl_Loaded"
+    LostFocus="UserControl_LostFocus"
+    mc:Ignorable="d">
+
+
+    <Grid>
+        <Image
+            Opacity="0"
+            Source="/Pic/background.png"
+            Stretch="UniformToFill" />
+        <Label
+            Width="650"
+            Height="480"
+            Margin="10,50,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="Blue"
+            Opacity="0.2" />
+        <Label
+            Width="650"
+            Height="480"
+            Margin="676,50,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="Blue"
+            Opacity="0.2">
+            <hc:AxleCanvas />
+        </Label>
+
+        <Label
+            Width="650"
+            Height="480"
+            Margin="676,535,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="Blue"
+            Opacity="0.2" />
+        <TextBlock
+            x:Name="txt_SOne"
+            Margin="223,70,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="温湿度传感器"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="21,95,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.2"
+            Text="___________________________________"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="33,252,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="设备电压(V)"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="260,250,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="设备电流(A)"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="464,250,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="设备功率(W)"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            x:Name="txt_SOneE"
+            Margin="317,200,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="1.1"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            x:Name="txt_SOneVo"
+            Margin="96,200,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="24"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            x:Name="txt_SOneP"
+            Margin="526,200,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="26.4"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Width="154"
+            Height="38"
+            Margin="38,428,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="今日用电能"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            x:Name="txt_SOneU"
+            Margin="68,380,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="0.0000"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="21,293,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.2"
+            Text="___________________________________"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Width="378"
+            Margin="-61,436,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.2"
+            RenderTransformOrigin="0.5,0.5"
+            Text="___________________________________"
+            TextWrapping="NoWrap">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="90.51" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock
+            Width="378"
+            Margin="160,436,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.2"
+            RenderTransformOrigin="0.5,0.5"
+            Text="___________________________________"
+            TextWrapping="NoWrap">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="90.51" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock
+            Margin="268,430,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="温度/湿度"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            x:Name="txt_SOneVa1"
+            Margin="268,380,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="00.0"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="281,473,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="℃"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            x:Name="txt_SOneVa2"
+            Margin="351,380,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="00.0"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="341,473,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="%RH"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="492,430,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="在线状态"
+            TextWrapping="NoWrap" />
+        <Image
+            x:Name="img_One"
+            Width="40"
+            Height="40"
+            Margin="532,380,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Source="/Pic/disconnect.png"
+            Stretch="Uniform" />
+        <Label
+            Width="650"
+            Height="480"
+            Margin="10,535,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="Blue"
+            Opacity="0.2" />
+        <TextBlock
+            x:Name="txt_STwo"
+            Margin="221,555,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="光照度传感器"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="21,580,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.2"
+            Text="___________________________________"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="33,735,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="设备电压(V)"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="260,735,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="设备电流(A)"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="464,735,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="设备功率(W)"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            x:Name="txt_STwoE"
+            Margin="317,685,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="1.1"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            x:Name="txt_STwoVo"
+            Margin="101,685,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="24"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            x:Name="txt_STwoP"
+            Margin="526,685,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="26.4"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            x:Name="txt_STwoU"
+            Margin="70,865,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="0.0000"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="21,778,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.2"
+            Text="___________________________________"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Width="378"
+            Margin="-61,921,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.2"
+            RenderTransformOrigin="0.5,0.5"
+            Text="___________________________________"
+            TextWrapping="NoWrap">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="90.51" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock
+            Width="378"
+            Margin="160,921,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.2"
+            RenderTransformOrigin="0.5,0.5"
+            Text="___________________________________"
+            TextWrapping="NoWrap">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="90.51" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock
+            Margin="260,915,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="光照度(LUX)"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            x:Name="txt_STwoVa"
+            Margin="306,865,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="0000"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="492,915,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="在线状态"
+            TextWrapping="NoWrap" />
+        <Image
+            x:Name="img_Two"
+            Width="40"
+            Height="40"
+            Margin="532,865,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Source="/Pic/disconnect.png"
+            Stretch="Uniform" />
+        <Label
+            Width="650"
+            Height="480"
+            Margin="1342,50,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="Blue"
+            Opacity="0.2" />
+        <TextBlock
+            Margin="1353,95,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.2"
+            Text="___________________________________"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="1365,251,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="设备电压(V)"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="1592,252,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="设备电流(A)"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="1796,251,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="设备功率(W)"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            x:Name="txt_OCE"
+            Margin="1649,200,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="1.1"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            x:Name="txt_OCVo"
+            Margin="1426,200,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="220"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            x:Name="txt_OCP"
+            Margin="1862,200,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="242"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="1372,432,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="今日用电能"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            x:Name="txt_OCU"
+            Margin="1407,380,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="0.0000"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="1353,293,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.2"
+            Text="___________________________________"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Width="378"
+            Margin="1271,436,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.2"
+            RenderTransformOrigin="0.5,0.5"
+            Text="___________________________________"
+            TextWrapping="NoWrap">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="90.51" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock
+            Width="378"
+            Margin="1492,436,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.2"
+            RenderTransformOrigin="0.5,0.5"
+            Text="___________________________________"
+            TextWrapping="NoWrap">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="90.51" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock
+            Margin="1600,430,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="DO1/DO2"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="1669,380,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="/"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            x:Name="txt_OCVa2"
+            Margin="1683,380,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="关"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="1824,430,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="在线状态"
+            TextWrapping="NoWrap" />
+        <Image
+            x:Name="img_Three"
+            Width="40"
+            Height="40"
+            Margin="1864,380,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Source="/Pic/disconnect.png"
+            Stretch="Uniform" />
+        <TextBlock
+            x:Name="txt_OCOne"
+            Margin="1585,70,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="风扇"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            x:Name="txt_OCVa1"
+            Margin="1640,380,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="关"
+            TextWrapping="NoWrap" />
+        <Label
+            Width="650"
+            Height="480"
+            Margin="1342,535,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="Blue"
+            Opacity="0.2" />
+        <TextBlock
+            Margin="1353,580,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.2"
+            Text="___________________________________"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="1380,735,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="电机电压"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="1611,735,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="电机电流"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="1832,735,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="电机功率"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            x:Name="txt_PlcE"
+            Margin="1642,685,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="1.1"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="1683,685,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="A"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            x:Name="txt_PlcV"
+            Margin="1402,685,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="220"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="1455,685,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="V"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            x:Name="txt_PlcP"
+            Margin="1845,685,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="242"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="1901,685,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="W"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="1365,915,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="今日用电能"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            x:Name="txt_PlcU"
+            Margin="1407,865,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="0.0000"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="1353,778,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.2"
+            Text="___________________________________"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Width="378"
+            Margin="1271,921,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.2"
+            RenderTransformOrigin="0.5,0.5"
+            Text="___________________________________"
+            TextWrapping="NoWrap">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="90.51" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock
+            Width="378"
+            Margin="1492,921,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.2"
+            RenderTransformOrigin="0.5,0.5"
+            Text="___________________________________"
+            TextWrapping="NoWrap">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="90.51" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock
+            Margin="1824,915,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="在线状态"
+            TextWrapping="NoWrap" />
+        <Image
+            x:Name="img_Four"
+            Width="40"
+            Height="40"
+            Margin="1864,865,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Source="/Pic/disconnect.png"
+            Stretch="Uniform" />
+        <TextBlock
+            x:Name="txt_Plc"
+            Margin="1561,555,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="S7-200 PLC"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="1611,915,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="电机转速"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="1633,958,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="(RPM)"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            x:Name="txt_PlcVa"
+            Margin="1645,865,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="0000"
+            TextWrapping="NoWrap" />
+        <lvc:PieChart
+            x:Name="chart_Online"
+            Width="275"
+            Height="275"
+            Margin="704,152,1036,675"
+            Opacity="0.9" />
+        <lvc:PieChart
+            x:Name="chart_state"
+            Width="275"
+            Height="275"
+            Margin="1008,152,732,676"
+            Opacity="0.9" />
+        <TextBlock
+            Margin="762,70,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="在线状态"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="1066,70,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="运行状态"
+            TextWrapping="NoWrap" />
+        <Button
+            Width="20"
+            Height="20"
+            Margin="750,446,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="#FFAAFF56"
+            Content="" />
+        <TextBlock
+            Margin="775,446,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="在线"
+            TextWrapping="NoWrap" />
+        <Button
+            Width="20"
+            Height="20"
+            Margin="865,446,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="#FFFF5656"
+            Content="" />
+        <TextBlock
+            Margin="890,446,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="离线"
+            TextWrapping="NoWrap" />
+        <Button
+            Width="20"
+            Height="20"
+            Margin="1035,446,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="#FF56AAFF"
+            Content="" />
+        <TextBlock
+            Margin="1060,446,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="信息"
+            TextWrapping="NoWrap">
+            <UIElement.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
+                </TransformGroup>
+            </UIElement.RenderTransform>
+        </TextBlock>
+        <Button
+            Width="20"
+            Height="20"
+            Margin="1124,446,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="#FFFFFF56"
+            Content="" />
+        <TextBlock
+            Margin="1149,446,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="警告"
+            TextWrapping="NoWrap">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <Button
+            Width="20"
+            Height="20"
+            Margin="1208,446,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="#FFFF5656"
+            Content="" />
+        <TextBlock
+            Margin="1233,446,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="异常"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Margin="0,555,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="日用电量统计"
+            TextWrapping="NoWrap" />
+        <lvc:CartesianChart
+            x:Name="chart_Sum"
+            Margin="705,639,719,151"
+            Opacity="0.9" />
+        <TextBlock
+            Margin="1670,70,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="/"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            x:Name="txt_OCTwo"
+            Margin="1695,70,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="40"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.8"
+            Text="灯泡"
+            TextWrapping="NoWrap" />
+        <Button
+            Width="306"
+            Height="56"
+            Margin="848,1030,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding connectManage}"
+            Content="配置连接地址"
+            FontSize="30"
+            FontWeight="Bold"
+            Style="{StaticResource ButtonPrimary}" />
+        <TextBlock
+            Width="67"
+            Height="38"
+            Margin="81,466,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="(wh)"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Width="154"
+            Height="38"
+            Margin="31,917,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="今日用电能"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Width="67"
+            Height="38"
+            Margin="74,955,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="(wh)"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Width="67"
+            Height="38"
+            Margin="1414,474,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="(wh)"
+            TextWrapping="NoWrap" />
+        <TextBlock
+            Width="67"
+            Height="38"
+            Margin="1413,953,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0.6"
+            Text="(wh)"
+            TextWrapping="NoWrap" />
+    </Grid>
+
+</UserControl>
